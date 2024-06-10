@@ -1,6 +1,5 @@
 import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faMdb } from '@fortawesome/free-brands-svg-icons';
 import { faFacebookF, faTwitter, faGoogle, faInstagram, faLinkedinIn, faGithub } from '@fortawesome/free-brands-svg-icons';
 import {
   MDBFooter,
@@ -13,7 +12,7 @@ import {
 } from 'mdb-react-ui-kit';
 
 
-const Footer = () => {
+const Footers = () => {
   return (
     <MDBFooter className='text-center text-white' style={{ backgroundColor: '#343a40' }}>
       <MDBContainer className='p-4'>
@@ -34,11 +33,11 @@ const Footer = () => {
           <FontAwesomeIcon icon={faInstagram} />
           </MDBBtn>
 
-          <MDBBtn outline color="light" floating className='m-1' href='#!' role='button'>
+          <MDBBtn outline color="light" floating className='m-1' href='https://www.linkedin.com/in/abujaforhadi/' role='button'>
           <FontAwesomeIcon icon={faLinkedinIn} />
           </MDBBtn>
 
-          <MDBBtn outline color="light" floating className='m-1' href='#!' role='button'>
+          <MDBBtn outline color="light" floating className='m-1' href='https://github.com/abujaforhadi/' role='button'>
           <FontAwesomeIcon icon={faGithub} />
           </MDBBtn>
         </section>
@@ -162,12 +161,11 @@ const Footer = () => {
 
       <div className='text-center p-3' style={{ backgroundColor: 'rgba(0, 0, 0, 0.2)' }}>
         © 2024 Copyright:
-        <a className='text-white' href='https://mdbootstrap.com/'>
-          XBoss.com
+        <a className='text-warning font-weight-bold' href='/home'> X<span className='text-light'>STORE</span>
         </a>
       </div>
     </MDBFooter>
   )
 }
 
-export default Footer;
+export default Footers;

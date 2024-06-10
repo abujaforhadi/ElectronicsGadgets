@@ -6,6 +6,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Notfound from './component/Notfound';
 import Details from './pages/Details';
 import CustomBrand from './component/CustomBrand';
+import LogIn from './pages/logIn';
+
 
 
 
@@ -18,7 +20,8 @@ function App() {
     <>
     <BrowserRouter>
         <Routes>
-          <Route exact path="/" element={<Home />} />
+          <Route exact path="/" element={<LogIn />} />
+          <Route exact path="/home" element={<Home />} />
           <Route exact path="/product/:id" element={<Details />} />
           <Route exact path="/category/:item" element={<CustomBrand />} />
           <Route path="*" element={<Notfound />} /> 
