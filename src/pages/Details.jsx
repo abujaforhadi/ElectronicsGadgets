@@ -47,7 +47,7 @@ function Details() {
         </MDBCol>
        
        <MDBCol md='8' >
-       <div className="" style={{backgroundColor: "#E2E2E9"}}>
+       <div className="" style={{backgroundColor: "#f7f7f7"}}>
           <MDBCardBody>
             <MDBCardTitle>{product.title}</MDBCardTitle>
             <MDBCardText>
@@ -57,7 +57,7 @@ function Details() {
             <MDBCardText>
             Price: ${product.price}
             </MDBCardText>
-            <Button variant="outline-primary" size="lg" className="mr-2">    Buy   </Button>
+            <Button variant="outline-primary" size="lg" className="mr-2 bg-primary text-white">    Buy   </Button>
           </MDBCardBody>
           </div>
         </MDBCol>

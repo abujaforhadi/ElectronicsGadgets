@@ -24,7 +24,7 @@ function Navss (){
 
   return (
     <>
-    <Navbar expand="lg" className="bg-body-tertiary fixed-top bg-primary">
+    <Navbar expand="lg" className="bg-body-tertiary bg-primary">
         <Container fluid>
           <Navbar.Brand href="/" className='text-warning font-weight-bold'>X<span className='text-light'>STORE</span> </Navbar.Brand>
           <Navbar.Toggle aria-controls="navbarScroll" />
@@ -34,11 +34,11 @@ function Navss (){
               style={{ maxHeight: "100px" }}
               navbarScroll
             >
-              <NavDropdown title="Categories" id="navbarScrollingDropdown">
+              <NavDropdown title={<span className='text-white'>Categories</span>} id="navbarScrollingDropdown">
              
                {
                   products.map((item) => 
-                  <NavDropdown.Item><Link to={`/category/${item}`}> {item} </Link></NavDropdown.Item>
+                  <NavDropdown.Item key={item.id}><Link   to={`/category/${item}`}> {item} </Link></NavDropdown.Item>
                 
                   )
                 }
@@ -57,6 +57,7 @@ function Navss (){
             </Nav>
             
           </Navbar.Collapse>
+          <Link to={"product"}><Navbar.Brand className='text-white font-weight-bold'>Our Products </Navbar.Brand></Link>
         </Container>
       </Navbar>{" "}
     </>

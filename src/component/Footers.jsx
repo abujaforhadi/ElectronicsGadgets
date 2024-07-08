@@ -1,10 +1,8 @@
-import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebookF, faTwitter, faGoogle, faInstagram, faLinkedinIn, faGithub } from '@fortawesome/free-brands-svg-icons';
 import {
   MDBFooter,
   MDBContainer,
-  MDBIcon,
   MDBInput,
   MDBCol,
   MDBRow,
@@ -64,7 +62,7 @@ const Footers = () => {
           </form>
         </section>
 
-        <section className='mb-4, pb-4'>
+        <section className='mb-4 pb-4'>
           <p>
             Leading highlighter Brands: Unleash Innovation with our Diverse brand Selection!
           </p>

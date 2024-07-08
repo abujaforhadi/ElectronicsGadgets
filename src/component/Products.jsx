@@ -7,8 +7,10 @@ import { Link } from "react-router-dom";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import Navss from "./Navss";
+import Footers from "./Footers";
 
-const Product = () => {
+const Products = () => {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
@@ -24,6 +26,10 @@ const Product = () => {
   }, []);
 
   return (
+    <>
+
+    <Navss />
+
     <Container fluid className="p-5">
       <Row className="gy-4">
         {products.map((product) => (
@@ -43,7 +49,7 @@ const Product = () => {
                 <ListGroup.Item>Category: {product.category}</ListGroup.Item>
               </ListGroup>
               <Card.Footer>
-                <Link to={`product/${product.id}`}>
+                <Link to={`${product.id}`}>
                   <Button variant="primary">View More</Button>
                 </Link>
               </Card.Footer>
@@ -52,7 +58,9 @@ const Product = () => {
         ))}
       </Row>
     </Container>
+    <Footers />
+    </>
   );
 };
 
-export default Product;
+export default Products;

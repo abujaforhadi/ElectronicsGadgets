@@ -6,17 +6,21 @@ import Button from "react-bootstrap/Button";
 import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import Navss from "./Navss";
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+import Footers from "./Footers";
 
 const CustomBrand = () => {
   const { item } = useParams();
-  const [product, setProduct] = useState([]);
+  const [products, setProducts] = useState([]);
 
   useEffect(() => {
     axios
       .get(`https://fakestoreapi.in/api/products/category?type=${item}`)
       .then((response) => {
         console.log(response.data.products, "testCustomBrand");
-        setProduct(response.data.products);
+        setProducts(response.data.products);
       })
       .catch((error) => {
         console.error("Error fetching data:", error);
@@ -25,43 +29,47 @@ const CustomBrand = () => {
 
   return (
     <>
-    <Navss />
-      <div className="container p-5">
-        <div className="row">
-          {product.map((item) => (
-            <div key={item.id} className="col-md-4 mb-4">
-              <Card style={{ width: "18rem", height: "34rem" }}>
+      <Navss />
+      <Container fluid className="p-5">
+        <Row className="gy-4">
+          {products.map((product) => (
+            <Col key={product.id} xs={12} sm={6} md={4} lg={3}>
+              <Card className="h-100">
                 <Card.Img
                   variant="top"
-                  src={item.image}
-                  alt={item.title}
+                  src={product.image}
+                  alt={product.title}
                   style={{ height: "200px", objectFit: "contain" }}
                 />
                 <Card.Body>
-                  <Card.Title>{item.title}</Card.Title>
+                <Card.Title> {product.title?.length > 90 ? `${product.title?.slice(0, 90)} ..` : product.title}</Card.Title>
+                  <Card.Text
+                    style={{ height: "60px", overflow: "hidden" }}
+                  ></Card.Text>
                 </Card.Body>
                 <ListGroup className="list-group-flush">
-                  <ListGroup.Item>Price: $ {item.price}</ListGroup.Item>
-                  <ListGroup.Item>Category: {item.category}</ListGroup.Item>
-                  <Card.Text className="pl-4">
+                  <ListGroup.Item>Price: $ {product.price}</ListGroup.Item>
+                  <ListGroup.Item>Category: {product.category}</ListGroup.Item>
+                  <Card.Text className="p-3">
                     Description:
-                    {item.description.length > 40
-                      ? item.description.substring(0, 40) + "..."
-                      : item.description}
+                    {product.description.length > 40
+                      ? product.description.substring(0, 40) + "..."
+                      : product.description}
                   </Card.Text>
-                  <Card.Text>
-                    <Link to={`/product/${item.id}`}>
+                  <Card.Footer>
+                    <Link to={`/product/${product.id}`}>
                       <Button variant="primary" className="center-button">
                         View More
                       </Button>
                     </Link>
-                  </Card.Text>
+                  </Card.Footer>
                 </ListGroup>
               </Card>
-            </div>
+            </Col>
           ))}
-        </div>
-      </div>
+        </Row>
+      </Container>
+      <Footers />
     </>
   );
 };
